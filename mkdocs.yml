@@ -1,0 +1,73 @@
+site_name: Self-Calibrating SOC Platform
+site_description: AI-powered open-source SOC with self-calibrating alert scoring and automated response
+site_author: Raj
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+    - scheme: default
+      primary: deep orange
+      accent: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.instant
+    - navigation.tracking
+    - toc.follow
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_css:
+  - assets/stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Project Overview:
+      - Overview: overview/index.md
+      - Architecture: overview/architecture.md
+      - Lab Setup: overview/lab-setup.md
+  - Infrastructure: infrastructure.md
+  - AI Pipeline: ai-pipeline.md
+  - Detection & Rules: detection.md
+  - SOAR & Response: soar.md
+  - Implementation Phases:
+      - Phase Summary: phases/index.md
+      - Phase 1 - Smoke Test: phases/phase-1.md
+      - Phase 2 - Asset Graph: phases/phase-2.md
+      - Phase 3 - MITRE Mapping: phases/phase-3.md
+      - Phase 4 - Feedback Loop: phases/phase-4.md
+      - Phase 5 - Hardening: phases/phase-5.md
+      - Phase 6 - Expansion: phases/phase-6.md
+  - Live Demo: dashboards.md
+  - Analyst Workflow: analyst-workflow.md
+  - Reference:
+      - Configuration: configuration.md
+      - Script Reference: scripts.md
+      - Troubleshooting: troubleshooting.md
+  - Conclusion: conclusion.md
