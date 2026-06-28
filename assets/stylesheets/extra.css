@@ -1,0 +1,51 @@
+:root {
+  --soc-accent: #ff7043;
+  --soc-muted-border: rgba(255, 112, 67, 0.28);
+}
+
+.md-typeset h1,
+.md-typeset h2 {
+  font-weight: 700;
+}
+
+.md-typeset img {
+  border: 1px solid var(--soc-muted-border);
+  border-radius: 6px;
+  box-shadow: 0 0.35rem 1.2rem rgba(0, 0, 0, 0.18);
+  margin: 0.75rem 0 0.35rem;
+}
+
+.md-typeset table:not([class]) {
+  font-size: 0.78rem;
+}
+
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  gap: 0.8rem;
+  margin: 1rem 0 1.4rem;
+}
+
+.metric-card {
+  border: 1px solid var(--soc-muted-border);
+  border-radius: 6px;
+  padding: 0.8rem;
+  background: color-mix(in srgb, var(--md-default-bg-color) 88%, var(--soc-accent) 12%);
+}
+
+.metric-card strong {
+  display: block;
+  color: var(--soc-accent);
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+.caption-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: 1rem;
+}
+
+.caption-grid img {
+  width: 100%;
+}
