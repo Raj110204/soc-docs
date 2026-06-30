@@ -1417,7 +1417,7 @@
 <td>vm-ai</td>
 <td>192.168.100.30</td>
 <td>AI Engine</td>
-<td>Python Pipeline, XGBoost, PostgreSQL, Redis, Claude API</td>
+<td>Python Pipeline, XGBoost, PostgreSQL, Redis, Ollama</td>
 <td style="text-align: right;">8 GB</td>
 <td style="text-align: right;">4 vCPU</td>
 <td style="text-align: right;">60 GB</td>
@@ -1449,7 +1449,7 @@
 <h2 id="key-design-choices">Key Design Choices<a class="headerlink" href="#key-design-choices" title="Permanent link">&para;</a></h2>
 <ul>
 <li><strong>Separation of concerns:</strong> collection, SIEM, AI, and response services are isolated by VM.</li>
-<li><strong>Open-source first:</strong> every infrastructure component is open-source, with Claude API as the only optional paid dependency.</li>
+<li><strong>Open-source first:</strong> every infrastructure component is open-source, including the LLM layer (Ollama/phi3), with no paid API dependencies.</li>
 <li><strong>Self-calibration:</strong> analyst decisions are treated as training data, not only case history.</li>
 <li><strong>Asset-aware scoring:</strong> domain controllers and SOC servers receive higher risk weighting than workstations.</li>
 </ul>

@@ -1273,6 +1273,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="llm_guidance.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1447,6 +1464,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="llm_guidance.py">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example-output" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example Output
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -1525,14 +1559,24 @@ sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class=
 <p><strong>PostgreSQL table written:</strong> <code>analyst_decisions(incident_id, analyst_action, decided_at)</code>.</p>
 <hr />
 <h2 id="llm_guidancepy"><code>llm_guidance.py</code><a class="headerlink" href="#llm_guidancepy" title="Permanent link">&para;</a></h2>
-<p>Calls the local Ollama <code>phi3</code> model to generate an investigation brief for each high-risk incident.</p>
-<p><strong>Output format (injected into TheHive case description):</strong></p>
-<ul>
-<li>What happened</li>
-<li>Why it matters</li>
-<li>What to check next</li>
-</ul>
-<p>Timeout is set to 300 seconds. If Ollama is unavailable, the pipeline inserts a fallback message and continues case creation.</p>
+<p>Calls the local Ollama <code>phi3</code> model to generate brief containment guidance for a given incident, based on alert type, source/destination, risk score, MITRE techniques, and asset tier.</p>
+<p><strong>Function:</strong> <code>generate_guidance(incident: dict)</code> → returns a plain-text guidance string.</p>
+<p>Timeout is set to 600 seconds. If Ollama is unreachable or the request fails, the function returns an <code>[ERROR]</code> string instead of raising, so callers can continue without crashing.</p>
+<p><strong>Note:</strong> this function is implemented and tested but is not currently called from <code>main_pipeline.py</code> — it runs as a standalone module rather than as a live stage in the automated pipeline. Wiring it in is a planned next step, not yet done.</p>
+<h3 id="example-output">Example Output<a class="headerlink" href="#example-output" title="Permanent link">&para;</a></h3>
+<p>Tested directly against the local Ollama instance with a sample SSH brute-force incident (<code>risk_score: 90</code>, MITRE <code>T1110</code>, asset tier 1):</p>
+<blockquote>
+<p>Given the high risk level and SOC alert indicative of an SSH brute-force attack, here are immediate containment steps for 'wazuh_manager' at Tier 1 asset level:</p>
+<ol>
+<li>Temporarily block IP address 192.168.100.50 using firewall rules to prevent further attempts while the situation is assessed and mitigated.</li>
+<li>Activate multi-factor authentication (MFA) for all user accounts where possible, adding a layer of security against compromised credentials.</li>
+<li>Ensure network segmentation is properly enforced to prevent lateral movement within the environment.</li>
+<li>Investigate and strengthen password policies in accordance with best practices.</li>
+<li>Roll back to a clean snapshot or backup if available, as an immediate mitigation while assessment continues.</li>
+<li>Review and enhance SSH access monitoring to reduce dwell time on any future intrusion attempts.</li>
+</ol>
+</blockquote>
+<p>Generation time on CPU-only inference (no GPU passthrough) ran 4–10 minutes depending on system memory pressure; a 2 GB swapfile on <code>vm-ai</code> was required to avoid request timeouts.</p>
 
 
 
