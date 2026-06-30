@@ -24,5 +24,5 @@ The Self-Calibrating SOC Platform successfully demonstrates a complete open-sour
 - Build graph-based attack chain detection with Neo4j.
 - Scale Elasticsearch into a multi-node cluster.
 - Capture richer feedback signals beyond accept/dismiss decisions.
-- Add local LLM guidance through Ollama for air-gapped deployments.
+- Add Claude API as an optional cloud fallback for higher-quality investigation guidance.
 - Integrate Active Directory and cloud workload telemetry.

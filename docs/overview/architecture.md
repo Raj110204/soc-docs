@@ -10,7 +10,7 @@ The project uses a four-VM design on an isolated `192.168.100.0/24` lab network.
 | --- | --- | --- | --- | ---: | ---: | ---: |
 | vm-collection | 192.168.100.10 | Log Collection | Wazuh Manager, Suricata IDS, Filebeat | 8 GB | 4 vCPU | 60 GB |
 | vm-siem | 192.168.100.20 | SIEM | Elasticsearch, Logstash, Kibana | 16 GB | 8 vCPU | 200 GB |
-| vm-ai | 192.168.100.30 | AI Engine | Python Pipeline, XGBoost, PostgreSQL, Redis, Claude API | 8 GB | 4 vCPU | 60 GB |
+| vm-ai | 192.168.100.30 | AI Engine | Python Pipeline, XGBoost, PostgreSQL, Redis, Ollama | 8 GB | 4 vCPU | 60 GB |
 | vm-response | 192.168.100.40 | Response | TheHive 5, Shuffle SOAR | 16 GB | 6 vCPU | 100 GB |
 
 ## End-to-End Flow
@@ -29,6 +29,6 @@ The project uses a four-VM design on an isolated `192.168.100.0/24` lab network.
 ## Key Design Choices
 
 - **Separation of concerns:** collection, SIEM, AI, and response services are isolated by VM.
-- **Open-source first:** every infrastructure component is open-source, with Claude API as the only optional paid dependency.
+- **Open-source first:** every infrastructure component is open-source, including the LLM layer (Ollama/phi3), with no paid API dependencies.
 - **Self-calibration:** analyst decisions are treated as training data, not only case history.
 - **Asset-aware scoring:** domain controllers and SOC servers receive higher risk weighting than workstations.

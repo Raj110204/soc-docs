@@ -11,7 +11,7 @@ The `vm-ai` pipeline is the project's main differentiator. It converts raw SIEM 
 | MITRE mapping | `RULE_TO_MITRE` dictionary | Technique IDs and correlation context |
 | Asset criticality | JSON asset graph | Tier multiplier for target host |
 | Risk scoring | XGBoost model | 0-100 `risk_score` |
-| LLM guidance | Claude API | What happened, why it matters, what to check next |
+| LLM guidance | Ollama (phi3, local) | What happened, why it matters, what to check next |
 | Case workflow | Shuffle and TheHive APIs | Case, tags, observables, and response tasks |
 | Feedback | TheHive poller and PostgreSQL | Analyst decisions for retraining |
 

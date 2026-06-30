@@ -20,7 +20,7 @@ This project implements a fully open-source SOC platform that ingests alerts fro
 - Fingerprint-based deduplication that collapses repeated alerts into incidents.
 - MITRE ATT&CK mapping and multi-stage attack correlation.
 - Asset-aware XGBoost risk scoring on a 0-100 scale.
-- Claude-powered investigation guidance for L1 analysts.
+- Locally-hosted LLM (Ollama/phi3) investigation guidance for L1 analysts.
 - Shuffle SOAR playbooks for TheHive case creation and critical-score isolation.
 - Analyst feedback learning through PostgreSQL and weekly model retraining.
 
@@ -31,7 +31,7 @@ This project implements a fully open-source SOC platform that ingests alerts fro
 | Log collection | Wazuh Manager and Agents, Suricata, Sysmon, auditd |
 | Transport and normalization | Filebeat, Logstash |
 | SIEM | Elasticsearch, Kibana |
-| AI engine | Python, Redis, PostgreSQL, XGBoost, Claude API |
+| AI engine | Python, Redis, PostgreSQL, XGBoost, Ollama (phi3) |
 | Response | TheHive 5, Shuffle SOAR, Wazuh active response |
 | Documentation | MkDocs Material |
 
